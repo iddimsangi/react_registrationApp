@@ -12,7 +12,7 @@ function Register() {
             className="form-input"
             placeholder="Full Name"
             id="inputName"
-            value=""
+            // value=""
             required
           />
           <label htmlFor="inputName">Full Name</label>
@@ -24,7 +24,7 @@ function Register() {
             className="form-input"
             placeholder="Email Address"
             id="inputEmail"
-            value=""
+            // value=""
             required
           />
           <label htmlFor="inputEmail">Full Name</label>
