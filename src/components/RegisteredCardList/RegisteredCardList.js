@@ -18,6 +18,7 @@ function RegisteredCardList() {
       </div>
  
       <RegisteredCard />
+      <RegisteredCard />
     </div>
   );
 }
