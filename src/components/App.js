@@ -20,6 +20,7 @@ function App() {
       <main className="App-main">
         {/* <Register /> */}
         <RegisteredCardList/>
+       
       </main>
     </div>
   );

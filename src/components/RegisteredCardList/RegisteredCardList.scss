@@ -53,17 +53,23 @@
             }
         }
        
-    .btn{
-        border: 1px solid red;
+    .btn-back{
+        background-image: linear-gradient(
+                90deg,
+                #003255 0%,
+                #02375ca2 50%,
+                transparent 50%
+              );
+              box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+              border:1px solid #003255 ;
         border-radius: .5rem;
-        background-color: orangered;
         display: flex;
         padding: 1rem 2.5rem;
         justify-content: space-between;
         width: 10rem;
         align-items: center;
         text-decoration: orange;
-        color: #ccc;
+        color: #fff;
         text-transform: uppercase;
         font-weight: 400;
         img{
