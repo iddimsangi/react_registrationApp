@@ -8,7 +8,7 @@ import "./App.scss";
 function App() {
   return (
     <div className="App">
-      <input type="checkbox" id="toggleIcon" />
+      <input className="inputCheckBox" type="checkbox" id="toggleIcon" />
       <header className="App-header">
         <img src={logo} className="App-header--logo" alt="logo" />
         <h1>online registration system</h1>
