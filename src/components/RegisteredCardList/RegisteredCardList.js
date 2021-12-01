@@ -3,7 +3,7 @@ import "./RegisteredCardList.scss";
 import arrow from "../../images/icons8-left-arrow-60.png";
 import searchIcon from "../../images/icons8-search-64.png";
 import RegisteredCard from "./registeredCard/RegisteredCard";
-import PersonCard from "../PersonCard/PersonCard"
+// import PersonCard from "../PersonCard/PersonCard"
 function RegisteredCardList() {
   return (
     <div className="card-list">
@@ -18,9 +18,9 @@ function RegisteredCardList() {
         
       </div>
  
-      <RegisteredCard />
-      <RegisteredCard />
-      <PersonCard/>
+      {/* {/* <RegisteredCard /> */}
+      <RegisteredCard /> */}
+      {/* <PersonCard/> */}
     </div>
   );
 }

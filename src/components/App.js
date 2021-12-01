@@ -2,6 +2,7 @@ import logo from "../images/logo.jpg";
 import sun from "../images/icons8-sun-50.png";
 import moon from "../images/icons8-crescent-moon-50.png";
 import Register from "./register/Register";
+import PersonCard from "./PersonCard/PersonCard"
 import RegisteredCardList from './RegisteredCardList/RegisteredCardList'
 import "./App.scss";
 
@@ -19,8 +20,8 @@ function App() {
       </header>
       <main className="App-main">
         {/* <Register /> */}
-        <RegisteredCardList/>
-       
+        {/* <RegisteredCardList/> */}
+       <PersonCard />
       </main>
     </div>
   );
