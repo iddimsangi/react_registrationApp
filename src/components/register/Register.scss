@@ -46,13 +46,36 @@
       }
     }
     .btn{
-        text-decoration: none;
-        color: #fff;
-        border: 1px solid green;
-        padding: 1rem 2rem;
-        text-transform: uppercase;
-        border-radius: 5px;
-        background-color: green;
+        &:link,
+        &:visited{
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid green;
+            padding: 1rem 2rem;
+            text-transform: uppercase;
+            border-radius: 5px;
+            background-color: green;
+            transition:all .5s;
+            // width:5rem ;
+        }
+        &:link::after,
+        &:visited::after{
+            content: "";
+            display: inline-block;
+            height: 100%;
+            // width: 2%;
+            background-color: green;
+            z-index: -1;
+            &:hover{
+                transform: scale(3);
+            }
+        }
+    &:hover{
+        background-color: orange;
+        transform: scaleY(-1rem);
+       
+    }
+      
     }
   }
 }
