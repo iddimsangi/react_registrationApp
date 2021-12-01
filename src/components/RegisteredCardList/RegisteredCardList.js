@@ -12,14 +12,13 @@ function RegisteredCardList() {
           <img src={arrow} alt="arrow-left" /> back
         </a>
         <form action="#" className="form-group">
-        <input className="input" type="text" ></input>
-        <img src={searchIcon} alt="arrow-left" /> 
+          <input className="input" type="text"></input>
+          <img src={searchIcon} alt="arrow-left" />
         </form>
-        
       </div>
- 
+
       {/* {/* <RegisteredCard /> */}
-      <RegisteredCard /> */}
+      <RegisteredCard />
       {/* <PersonCard/> */}
     </div>
   );
