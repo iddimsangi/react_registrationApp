@@ -1,10 +1,27 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Register.scss";
-function Register() {
+function Register(props) {
+  const[personDetail, setpersonDetail] = useState({
+    fullName:"",
+    emailAddress:""
+  })
+  console.log(personDetail)
+  const register = (e) =>{
+    e.preventDefault();
+   
+    setpersonDetail({
+      fullName:"",
+      emailAddress:""
+    })
+    console.log(personDetail)
+   return props.personRegistered(personDetail)
+  
+  }
+
   return (
     <div className="register">
       <h1>register now</h1>
-      <form action="#" className="register-form">
+      <form action="#" className="register-form" onSubmit={register}>
         <div className="form-group">
           <input
             type="text"
@@ -12,7 +29,8 @@ function Register() {
             className="form-input"
             placeholder="Full Name"
             id="inputName"
-            // value=""
+            value={personDetail.fullName}
+            onChange={(e) => {setpersonDetail({...personDetail,fullName: e.target.value})}}
             required
           />
           <label htmlFor="inputName">Full Name</label>
@@ -24,12 +42,14 @@ function Register() {
             className="form-input"
             placeholder="Email Address"
             id="inputEmail"
-            // value=""
+            value={personDetail.emailAddress}
+            onChange={(e) => {setpersonDetail({...personDetail, emailAddress: e.target.value})}}
             required
           />
           <label htmlFor="inputEmail">Full Name</label>
         </div>
-        <a href="#" className="btn">register</a>
+        {/* <a href="#" onClick={register} type="submit" className="btn">register</a> */}
+        <button className="btn" type="submit">Register</button>
       </form>
     </div>
   );

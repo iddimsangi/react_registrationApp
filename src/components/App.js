@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import logo from "../images/logo.jpg";
 // import sun from "../images/icons8-sun-50.png";
 import sun from "../images/icon-sun.svg";
@@ -9,6 +10,15 @@ import RegisteredCardList from "./RegisteredCardList/RegisteredCardList";
 import "./App.scss";
 
 function App() {
+  const[peopleDetailsArr, setpeopleDetailsArr] = useState([]);
+  const personRegistered = (person) =>{
+    setpeopleDetailsArr([
+      ...peopleDetailsArr,
+      person
+    ])
+    console.log(person)
+  }
+  console.log(peopleDetailsArr)
   return (
     <div className="App">
       <input className="inputCheckBox" type="checkbox" id="toggleIcon" />
@@ -16,15 +26,15 @@ function App() {
         <img src={logo} className="App-header--logo" alt="logo" />
         <h1>online registration system</h1>
         <label htmlFor="toggleIcon" className="icons">
-        <img src={moon} alt="sun logo" />
+          <img src={moon} alt="sun logo" />
           <img src={sun} alt="sun logo" />
-        
         </label>
       </header>
       <main className="App-main">
-        {/* <Register /> */}
-        {/* <RegisteredCardList/> */}
-        <PersonCard />
+        <Register personRegistered={personRegistered}/>
+        <RegisteredCardList />
+        {/* <RegisteredCardList/>
+        <PersonCard /> */}
       </main>
     </div>
   );

@@ -18,7 +18,7 @@ function RegisteredCardList() {
       </div>
 
       {/* {/* <RegisteredCard /> */}
-      <RegisteredCard />
+      {/* <RegisteredCard /> */}
       {/* <PersonCard/> */}
     </div>
   );
