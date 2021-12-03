@@ -5,7 +5,6 @@ function Register(props) {
     fullName:"",
     emailAddress:""
   })
-  console.log(personDetail)
   const register = (e) =>{
     e.preventDefault();
    

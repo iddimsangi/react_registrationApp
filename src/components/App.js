@@ -32,7 +32,7 @@ function App() {
       </header>
       <main className="App-main">
         <Register personRegistered={personRegistered}/>
-        <RegisteredCardList />
+        <RegisteredCardList peopleDetailsArr={peopleDetailsArr} />
         {/* <RegisteredCardList/>
         <PersonCard /> */}
       </main>
