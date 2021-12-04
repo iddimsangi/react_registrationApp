@@ -7,7 +7,7 @@ import RegisteredCard from "./registeredCard/RegisteredCard";
 function RegisteredCardList(props) {
   // console.log(props);
   const cardList = props.peopleDetailsArr.map(personObj =>{
-    return <RegisteredCard person = {personObj} />
+    return <RegisteredCard person = {personObj} key={personObj.id} />
   })
   return (
     <div className="card-list">

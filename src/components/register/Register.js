@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+
 import "./Register.scss";
 function Register(props) {
   const[personDetail, setpersonDetail] = useState({
@@ -10,7 +11,8 @@ function Register(props) {
    
     setpersonDetail({
       fullName:"",
-      emailAddress:""
+      emailAddress:"",
+  
     })
     console.log(personDetail)
    return props.personRegistered(personDetail)
