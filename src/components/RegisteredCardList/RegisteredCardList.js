@@ -6,8 +6,11 @@ import RegisteredCard from "./registeredCard/RegisteredCard";
 // import PersonCard from "../PersonCard/PersonCard"
 function RegisteredCardList(props) {
   // console.log(props);
+const getCardId = (id) =>{
+  props.getRegisteredCardID(id)
+}
   const cardList = props.peopleDetailsArr.map(personObj =>{
-    return <RegisteredCard person = {personObj} key={personObj.id} />
+    return <RegisteredCard person = {personObj} key={personObj.id} RegisteredCardID={getCardId} />
   })
   return (
     <div className="card-list">

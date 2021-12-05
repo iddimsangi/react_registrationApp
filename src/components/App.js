@@ -5,7 +5,6 @@ import sun from "../images/icon-sun.svg";
 // import moon from "../images/icons8-crescent-moon-50.png";
 import moon from "../images/icon-moon.svg";
 import Register from "./register/Register";
-import { uuidv4 } from "uuidv4"
 import PersonCard from "./PersonCard/PersonCard";
 import RegisteredCardList from "./RegisteredCardList/RegisteredCardList";
 import "./App.scss";
@@ -18,6 +17,12 @@ function App() {
       {id:new Date(), ...person}
     ])
     console.log(person)
+  }
+  const deletePerson = (ID) =>{
+    const personID = peopleDetailsArr.map(person  =>{
+      return person.id !== ID;
+    })
+    setpeopleDetailsArr(personID)
   }
   console.log(peopleDetailsArr)
   return (
@@ -33,7 +38,7 @@ function App() {
       </header>
       <main className="App-main">
         <Register personRegistered={personRegistered}/>
-        <RegisteredCardList peopleDetailsArr={peopleDetailsArr} />
+        <RegisteredCardList peopleDetailsArr={peopleDetailsArr} getRegisteredCardID={deletePerson} />
         {/* <RegisteredCardList/>
         <PersonCard /> */}
       </main>

@@ -3,9 +3,9 @@ import "./RegisteredCard.scss";
 import user from "../../../images/icons8-user-100.png";
 import trash from "../../../images/icons8-trash.svg";
 function RegisteredCard(props) {
-  const{fullName, emailAddress} = props.person;
-  console.log(fullName)
-  // console.log(props)
+  const{fullName, emailAddress, id} = props.person;
+  console.log(fullName);
+
   return (
     <div className="card">
       <div>
@@ -15,7 +15,7 @@ function RegisteredCard(props) {
           <span>{emailAddress}</span>
         </h3>
       </div>
-      <img src={trash} alt="trush" />
+      <img src={trash} alt="trush" onClick={() => props.RegisteredCardID(id)} />
     </div>
   );
 }
