@@ -5,9 +5,8 @@ import trash from "../../../images/icons8-trash.svg";
 function RegisteredCard(props) {
   const{fullName, emailAddress, id} = props.person;
   console.log(fullName);
-
   return (
-    <div className="card">
+    <div className="card" >
       <div>
         <img src={user} alt="user" />
         <h3>

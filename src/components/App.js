@@ -13,13 +13,14 @@ function App() {
   const[peopleDetailsArr, setpeopleDetailsArr] = useState([]);
   const personRegistered = (person) =>{
     setpeopleDetailsArr([
-      ...peopleDetailsArr,
-      {id:new Date(), ...person}
+      {id:new Date(), ...person},
+      ...peopleDetailsArr
+    
     ])
     console.log(person)
   }
   const deletePerson = (ID) =>{
-    const personID = peopleDetailsArr.map(person  =>{
+    const personID = peopleDetailsArr.filter(person  =>{
       return person.id !== ID;
     })
     setpeopleDetailsArr(personID)
