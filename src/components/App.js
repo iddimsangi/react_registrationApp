@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import logo from "../images/logo.jpg";
 // import sun from "../images/icons8-sun-50.png";
 import sun from "../images/icon-sun.svg";
@@ -10,7 +10,9 @@ import RegisteredCardList from "./RegisteredCardList/RegisteredCardList";
 import "./App.scss";
 
 function App() {
+
   const[peopleDetailsArr, setpeopleDetailsArr] = useState([]);
+  const LOCAL_STORAGE_KEY = "peopleDetailsArr";
   const personRegistered = (person) =>{
     setpeopleDetailsArr([
       {id:new Date(), ...person},
@@ -25,7 +27,14 @@ function App() {
     })
     setpeopleDetailsArr(personID)
   }
-  console.log(peopleDetailsArr)
+  // console.log(peopleDetailsArr)
+  useEffect(() => {
+  const receivedPeopleArr =  JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+  if(receivedPeopleArr) setpeopleDetailsArr(receivedPeopleArr)
+   }, [])
+  useEffect(() => {
+   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(peopleDetailsArr))
+  }, [peopleDetailsArr])
   return (
     <div className="App">
       <input className="inputCheckBox" type="checkbox" id="toggleIcon" />
