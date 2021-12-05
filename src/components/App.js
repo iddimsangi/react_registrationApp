@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 import logo from "../images/logo.jpg";
 // import sun from "../images/icons8-sun-50.png";
 import sun from "../images/icon-sun.svg";
@@ -10,31 +10,28 @@ import RegisteredCardList from "./RegisteredCardList/RegisteredCardList";
 import "./App.scss";
 
 function App() {
-
-  const[peopleDetailsArr, setpeopleDetailsArr] = useState([]);
+  const [peopleDetailsArr, setpeopleDetailsArr] = useState([]);
   const LOCAL_STORAGE_KEY = "peopleDetailsArr";
-  const personRegistered = (person) =>{
-    setpeopleDetailsArr([
-      {id:new Date(), ...person},
-      ...peopleDetailsArr
-    
-    ])
-    console.log(person)
-  }
-  const deletePerson = (ID) =>{
-    const personID = peopleDetailsArr.filter(person  =>{
+  const personRegistered = (person) => {
+    setpeopleDetailsArr([{ id: new Date(), ...person }, ...peopleDetailsArr]);
+    console.log(person);
+  };
+  const deletePerson = (ID) => {
+    const personID = peopleDetailsArr.filter((person) => {
       return person.id !== ID;
-    })
-    setpeopleDetailsArr(personID)
-  }
+    });
+    setpeopleDetailsArr(personID);
+  };
   // console.log(peopleDetailsArr)
   useEffect(() => {
-  const receivedPeopleArr =  JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-  if(receivedPeopleArr) setpeopleDetailsArr(receivedPeopleArr)
-   }, [])
+    const receivedPeopleArr = JSON.parse(
+      localStorage.getItem(LOCAL_STORAGE_KEY)
+    );
+    if (receivedPeopleArr) setpeopleDetailsArr(receivedPeopleArr);
+  }, []);
   useEffect(() => {
-   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(peopleDetailsArr))
-  }, [peopleDetailsArr])
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(peopleDetailsArr));
+  }, [peopleDetailsArr]);
   return (
     <div className="App">
       <input className="inputCheckBox" type="checkbox" id="toggleIcon" />
@@ -47,8 +44,11 @@ function App() {
         </label>
       </header>
       <main className="App-main">
-        <Register personRegistered={personRegistered}/>
-        <RegisteredCardList peopleDetailsArr={peopleDetailsArr} getRegisteredCardID={deletePerson} />
+        <Register personRegistered={personRegistered} />
+        <RegisteredCardList
+          peopleDetailsArr={peopleDetailsArr}
+          getRegisteredCardID={deletePerson}
+        />
         {/* <RegisteredCardList/>
         <PersonCard /> */}
       </main>
