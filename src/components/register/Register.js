@@ -1,11 +1,14 @@
 import React,{useState} from "react";
-
+// import { useHistory } from 'react-router-dom';
+import {  useNavigate} from "react-router-dom"
 import "./Register.scss";
 function Register(props) {
   const[personDetail, setpersonDetail] = useState({
     fullName:"",
     emailAddress:""
   })
+  // const history = useHistory();
+  const navigate = useNavigate();
   const register = (e) =>{
     e.preventDefault();
    
@@ -15,6 +18,7 @@ function Register(props) {
   
     })
     console.log(personDetail)
+    navigate("/RegisteredList")
    return props.personRegistered(personDetail)
   
   }
@@ -50,7 +54,10 @@ function Register(props) {
           <label htmlFor="inputEmail">Full Name</label>
         </div>
         {/* <a href="#" onClick={register} type="submit" className="btn">register</a> */}
-        <button className="btn" type="submit">Register</button>
+   
+       <button className="btn" type="submit">Register</button>
+      
+      
       </form>
     </div>
   );
