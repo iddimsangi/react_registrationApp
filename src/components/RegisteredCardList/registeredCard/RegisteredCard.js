@@ -8,7 +8,7 @@ function RegisteredCard(props) {
   console.log(fullName);
   return (
     <div className="card" >
-      <Link to={{pathname:`/RegisteredList${id}`, state: {person: props.person}}} >
+      <Link to={{pathname:`/RegisteredList${id}`, state: {fullName, emailAddress}}} >
       <div>
         <img src={user} alt="user" />
         <h3>

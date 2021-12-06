@@ -9,9 +9,11 @@
       transparent 50%
     ),
     url(../../images/iStock-507631072.jpg);
-  background-size: 100%;
+  // background-size:150%;
+  background-size: 95rem;
   background-position: center;
   background-repeat: no-repeat;
+  // background-attachment: fixed;
   height: 45vh;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 5px;
