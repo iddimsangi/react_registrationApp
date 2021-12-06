@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import logo from "../images/logo.jpg";
-// import sun from "../images/icons8-sun-50.png";
 import sun from "../images/icon-sun.svg";
-// import moon from "../images/icons8-crescent-moon-50.png";
 import moon from "../images/icon-moon.svg";
 import Register from "./register/Register";
-import PersonCard from "./PersonCard/PersonCard";
 import RegisteredCardList from "./RegisteredCardList/RegisteredCardList";
 import "./App.scss";
 
@@ -22,7 +20,6 @@ function App() {
     });
     setpeopleDetailsArr(personID);
   };
-  // console.log(peopleDetailsArr)
   useEffect(() => {
     const receivedPeopleArr = JSON.parse(
       localStorage.getItem(LOCAL_STORAGE_KEY)
@@ -34,24 +31,47 @@ function App() {
   }, [peopleDetailsArr]);
   return (
     <div className="App">
-      <input className="inputCheckBox" type="checkbox" id="toggleIcon" />
-      <header className="App-header">
-        <img src={logo} className="App-header--logo" alt="logo" />
-        <h1>online registration system</h1>
-        <label htmlFor="toggleIcon" className="icons">
-          <img src={moon} alt="sun logo" />
-          <img src={sun} alt="sun logo" />
-        </label>
-      </header>
-      <main className="App-main">
-        <Register personRegistered={personRegistered} />
+      <Router>
+        <input className="inputCheckBox" type="checkbox" id="toggleIcon" />
+        <header className="App-header">
+          <img src={logo} className="App-header--logo" alt="logo" />
+          <h1>online registration system</h1>
+          <label htmlFor="toggleIcon" className="icons">
+            <img src={moon} alt="sun logo" />
+            <img src={sun} alt="sun logo" />
+          </label>
+        </header>
+        <main className="App-main">
+          <Routes>
+            <Route
+              exact
+              path="/"
+              exact
+              element={<Register personRegistered={personRegistered} />}
+            />
+            <Route
+              path="/RegisteredList"
+              exact
+              element={
+                <RegisteredCardList
+                  peopleDetailsArr={peopleDetailsArr}
+                  getRegisteredCardID={deletePerson}
+                />
+              }
+            />
+            {/* <Route exact path='/' element={<RegisteredCardList />} /> */}
+            {/* <Route path="/" exact render={(props) =>( <RegisteredCardList {...props}
+          peopleDetailsArr={peopleDetailsArr}
+          getRegisteredCardID={deletePerson}
+        />)} /> */}
+          </Routes>
+          {/* <Register personRegistered={personRegistered} />
         <RegisteredCardList
           peopleDetailsArr={peopleDetailsArr}
           getRegisteredCardID={deletePerson}
-        />
-        {/* <RegisteredCardList/>
-        <PersonCard /> */}
-      </main>
+        /> */}
+        </main>
+      </Router>
     </div>
   );
 }
