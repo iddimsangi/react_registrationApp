@@ -4,6 +4,7 @@ import logo from "../images/logo.jpg";
 import sun from "../images/icon-sun.svg";
 import moon from "../images/icon-moon.svg";
 import Register from "./register/Register";
+import PersonCard from "./PersonCard/PersonCard"
 import RegisteredCardList from "./RegisteredCardList/RegisteredCardList";
 import "./App.scss";
 
@@ -57,6 +58,13 @@ function App() {
                   peopleDetailsArr={peopleDetailsArr}
                   getRegisteredCardID={deletePerson}
                 />
+              }
+            />
+              <Route
+              path="/RegisteredList:id"
+          
+              element={
+                <PersonCard/>
               }
             />
             {/* <Route exact path='/' element={<RegisteredCardList />} /> */}

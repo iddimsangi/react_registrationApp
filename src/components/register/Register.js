@@ -1,27 +1,25 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 // import { useHistory } from 'react-router-dom';
-import {  useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import "./Register.scss";
 function Register(props) {
-  const[personDetail, setpersonDetail] = useState({
-    fullName:"",
-    emailAddress:""
-  })
+  const [personDetail, setpersonDetail] = useState({
+    fullName: "",
+    emailAddress: "",
+  });
   // const history = useHistory();
   const navigate = useNavigate();
-  const register = (e) =>{
+  const register = (e) => {
     e.preventDefault();
-   
+
     setpersonDetail({
-      fullName:"",
-      emailAddress:"",
-  
-    })
-    console.log(personDetail)
-    navigate("/RegisteredList")
-   return props.personRegistered(personDetail)
-  
-  }
+      fullName: "",
+      emailAddress: "",
+    });
+    console.log(personDetail);
+    navigate("/RegisteredList");
+    return props.personRegistered(personDetail);
+  };
 
   return (
     <div className="register">
@@ -35,7 +33,9 @@ function Register(props) {
             placeholder="Full Name"
             id="inputName"
             value={personDetail.fullName}
-            onChange={(e) => {setpersonDetail({...personDetail,fullName: e.target.value})}}
+            onChange={(e) => {
+              setpersonDetail({ ...personDetail, fullName: e.target.value });
+            }}
             required
           />
           <label htmlFor="inputName">Full Name</label>
@@ -48,16 +48,21 @@ function Register(props) {
             placeholder="Email Address"
             id="inputEmail"
             value={personDetail.emailAddress}
-            onChange={(e) => {setpersonDetail({...personDetail, emailAddress: e.target.value})}}
+            onChange={(e) => {
+              setpersonDetail({
+                ...personDetail,
+                emailAddress: e.target.value,
+              });
+            }}
             required
           />
           <label htmlFor="inputEmail">Full Name</label>
         </div>
         {/* <a href="#" onClick={register} type="submit" className="btn">register</a> */}
-   
-       <button className="btn" type="submit">Register</button>
-      
-      
+
+        <button className="btn" type="submit">
+          Register
+        </button>
       </form>
     </div>
   );
