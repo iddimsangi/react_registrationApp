@@ -61,7 +61,7 @@ function App() {
               }
             />
               <Route
-              path="/RegisteredList:id"
+              path="/RegisteredList/:id"
           
               element={
                 <PersonCard/>
