@@ -25,6 +25,7 @@ function App() {
     console.log(person);
   };
   const deletePerson = (ID) => {
+    axios.delete(`http://localhost:3006/peopleDetailsArr${ID}`)
     const personID = peopleDetailsArr.filter((person) => {
       return person.id !== ID;
     });
@@ -35,6 +36,7 @@ function App() {
     axios.get("http://localhost:3006/peopleDetailsArr")
     .then(response =>{
       // console.log(response.data)
+      setpeopleDetailsArr(response.data);
       return response.data;
     })
   }
@@ -47,7 +49,7 @@ function App() {
     // if (receivedPeopleArr) setpeopleDetailsArr(receivedPeopleArr);
   }, []);
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(peopleDetailsArr));
+    // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(peopleDetailsArr));
   }, [peopleDetailsArr]);
   return (
     <div className="App">
