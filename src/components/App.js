@@ -52,8 +52,9 @@ function App() {
     // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(peopleDetailsArr));
   }, [peopleDetailsArr]);
   return (
-    <div className="App">
-      <input type="checkbox" id="toggleIcon" className="inputCheckBox"/>
+<div>
+<input type="checkbox" id="toggleIcon" className="inputCheckBox"/>
+<div className="App">
       <Router>
         {/* <input className="inputCheckBox" type="checkbox" id="toggleIcon" /> */}
         <header className="App-header">
@@ -103,6 +104,7 @@ function App() {
         </main>
       </Router>
     </div>
+</div>
   );
 }
 
