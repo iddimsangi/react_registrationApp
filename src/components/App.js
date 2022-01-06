@@ -13,7 +13,15 @@ function App() {
   const [peopleDetailsArr, setpeopleDetailsArr] = useState([]);
   const LOCAL_STORAGE_KEY = "peopleDetailsArr";
   const personRegistered = (person) => {
-    setpeopleDetailsArr([{ id: new Date(), ...person }, ...peopleDetailsArr]);
+    const request = {
+      id:new Date(),
+      ...person
+    }
+    axios.post("http://localhost:3006/peopleDetailsArr", request)
+    .then(response => {
+      setpeopleDetailsArr([response.data, ...peopleDetailsArr]);
+    })
+   
     console.log(person);
   };
   const deletePerson = (ID) => {
@@ -26,16 +34,17 @@ function App() {
   const receivedData = () =>{
     axios.get("http://localhost:3006/peopleDetailsArr")
     .then(response =>{
-      console.log(response.data)
+      // console.log(response.data)
       return response.data;
     })
   }
   useEffect(() => {
-    receivedData()
-    const receivedPeopleArr = JSON.parse(
-      localStorage.getItem(LOCAL_STORAGE_KEY)
-    );
+    const receivedPeopleArr = receivedData();
     if (receivedPeopleArr) setpeopleDetailsArr(receivedPeopleArr);
+    // const receivedPeopleArr = JSON.parse(
+    //   localStorage.getItem(LOCAL_STORAGE_KEY)
+    // );
+    // if (receivedPeopleArr) setpeopleDetailsArr(receivedPeopleArr);
   }, []);
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(peopleDetailsArr));
