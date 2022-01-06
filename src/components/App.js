@@ -6,6 +6,7 @@ import moon from "../images/icon-moon.svg";
 import Register from "./register/Register";
 import PersonCard from "./PersonCard/PersonCard"
 import RegisteredCardList from "./RegisteredCardList/RegisteredCardList";
+import axios from "axios"
 import "./App.scss";
 
 function App() {
@@ -21,7 +22,16 @@ function App() {
     });
     setpeopleDetailsArr(personID);
   };
+
+  const receivedData = () =>{
+    axios.get("http://localhost:3006/peopleDetailsArr")
+    .then(response =>{
+      console.log(response.data)
+      return response.data;
+    })
+  }
   useEffect(() => {
+    receivedData()
     const receivedPeopleArr = JSON.parse(
       localStorage.getItem(LOCAL_STORAGE_KEY)
     );
